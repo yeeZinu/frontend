@@ -1,0 +1,42 @@
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 500px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        span {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <span v-for="i in size">
+            {{ i }}
+        </span>
+    </div>
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    size: 5
+                };
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+
+</html>

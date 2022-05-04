@@ -1,0 +1,70 @@
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 500px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 400px;
+        }
+
+        td {
+            padding: 5px;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+
+        td:nth-child(4) {
+            width: 50px;
+        }
+
+        tr:nth-child(1) {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <td>name</td>
+                <td>count</td>
+                <td></td>
+            </tr>
+            <tr v-for="(animal, index) in animals" v-bind:key="animal.id">
+                <td>{{ animal.name }}</td>
+                <td>{{ animal.count }}</td>
+                <td><button type="button" v-on:click="increase(index)">++</button></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    animals: [{ id: 101, name: "고양이", count:0 },
+                    { id: 102, name: "강아지", count: 0 },
+                    { id: 104, name: "닭", count: 0 }]
+                };
+            },
+            methods: {
+                increase(index) {
+                        this.animals[index].count++;
+                }
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+
+</html>

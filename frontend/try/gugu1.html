@@ -1,0 +1,52 @@
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 900px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr v-for="n in num">
+                <td v-for="d in dan-1"
+                >
+                    {{ d+1 }} * {{n}} = {{(d+1)*n}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    num: 9,
+                    dan: 9
+                };
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        div#app {
+            margin: 20px auto;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid gray;
+            box-shadow: 5px 5px 5px #aaa;
+        }
+
+        input {
+            margin: 10px auto;
+        }
+
+        p{
+            font-size: 15px;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 10pt;
+            width: 150px;
+            margin: 10px auto;
+        }
+
+        label {
+            font-size: 12pt;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>입력 양식</h1>
+        <input type="text" placeholder="이름을 입력하세요" v-model="name" /> <br />
+        <div>
+            <label>
+                <input type="radio" value="man" v-model="sex" />남자
+            </label>
+            <label>
+                <input type="radio" value="woman" v-model="sex" />여자
+            </label>
+        </div>
+        <select v-model="choice">
+            <option value="전공">전공을 선택하세요</option>
+            <option value="소프">소프트웨어 공학</option>
+            <option value="컴공">컴퓨터 공학</option>
+            <option value="디컨">디지털컨텐츠</option>
+            <option value="글컬">글로컬IT</option>
+        </select> <br />
+        <div><input type="checkbox" v-model="onf" /> 활성화
+            <hr />
+            <p>이름: {{onf? name : null}}</p>
+            <p>성별: {{onf? sex : null}}</p>
+            <p>전공: {{onf? choice : null}}</p>
+            <P>활성화: {{onf}}</P>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    name: "",
+                    sex: false,
+                    choice: "전공",
+                    onf: false
+                };
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+
+</html>

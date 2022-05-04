@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        div#box {
+            margin: 20px auto;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid gray;
+            box-shadow: 5px 5px 5px #aaa;
+            transition: background-color 1s, height 1s;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 15pt;
+            width: 150px;
+            margin: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="box">
+            <h1>test1</h1>
+            <select v-model="number">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <table>
+                <tr v-model.number="number" v-for="d in dan-1">
+                    <td>
+                        {{ number }} * {{d}} = {{(d+1)*number}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    number: 2,
+                    dan:10
+                };
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+
+</html>

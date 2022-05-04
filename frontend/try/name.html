@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 400px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        div#app div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+        }
+
+        input[type=text] {
+            padding: 4px;
+        }
+
+        div.full {
+            font-size: 16pt;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>성명</h1>
+        <div>
+            <label>성</label>
+            <input type="text" v-model="first" />
+        </div>
+        <div>
+            <label>이름</label>
+            <input type="text" v-model="last" />
+        </div>
+        <hr />
+        <div class="full">
+            {{ full }}
+        </div>
+    </div>
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    first: "김",
+                    last: "슬",
+                };
+            },
+            computed: {
+                full() {
+                    return this.first + this.last;
+                }
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+
+</html>
